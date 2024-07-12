@@ -21,7 +21,7 @@ sap.ui.define([
 			// 4000000001928
             var securityId = this.byId("securityId").getValue();
             if (securityId == ""){
-            	alert("null!!");
+            	alert("null!!!!!!!");
             }
             else{
             	
