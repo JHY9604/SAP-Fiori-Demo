@@ -24,7 +24,7 @@ sap.ui.define([
             	alert("null!!!!!!!");
             }
             else{
-            	
+            	// TEST - JHYKJSDLFJLSDLFKJSDFLKJSDFLJ
             	// alert(securityId);
 				var oModelDetail = new sap.ui.model.odata.v2.ODataModel("/sap/opu/odata/sap/ZPJ_BOND_TEST_SRV/");
 				var sPath = "/Z_BDCLASSSet(SecurityId='" + securityId + "')";
