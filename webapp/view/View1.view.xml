@@ -14,7 +14,7 @@
 							<Input id="companyCode" width="100%" showValueHelp="true" valueHelpRequest="onCocdHelp"/>
 							
 <!-- ********************************Cocd Value Help DIALOG Start***************************** -->
-							<Dialog id="HelpCompanyCode" title="회사코드">
+							<Dialog id="HCompanyCode" title="회사코드">
     					    <Table mode="SingleSelectMaster" selectionChange="onRowPress" id="CoCdTable" items="{/HT001Set}">
     					    	<columns>
     					    		<Column>
@@ -74,7 +74,7 @@
 							<Input id="securityId" submit="onReadBdClass" showValueHelp="true" valueHelpRequest="onSecurityHelp"/>
 							
 <!-- ********************************종목ID Value Help DIALOG Start***************************** -->		
-							<Dialog id="HelpSecurity" title="종목ID">
+							<Dialog id="HSecurity" title="종목ID">
 							<SearchField id="securitySearch" search="onSecuritySearch"/>								
     					    <Table mode="SingleSelectMaster" selectionChange="onRowPress" id="securityTable" items="{/ZhcfmcmranlBdSet}">
     					    	<columns>
@@ -119,13 +119,13 @@
 				<HBox justifyContent="SpaceBetween" class="HBoxStyle">
 						<VBox>
 							<Label text="상품유형" labelFor="productType"/>
-							<Input id="productType" showValueHelp="true" valueHelpRequest="onValueHelpRequest"/>
+							<Input id="productType" showValueHelp="true" valueHelpRequest="onPTypeHelp"/>
 							
 <!-- ********************************상품유형 Value Help DIALOG Start***************************** -->							
-							<Dialog id="valueHelpDialog" title="상품유형">
-    					    <SearchField id="searchField" search="onSearch"/>
+							<Dialog id="HPtype" title="상품유형">
+    					    <SearchField id="searchField" search="onPTypSearch"/>
 
-    					    <Table mode="SingleSelectMaster" selectionChange="onRowPress" id="valueHelpList" items="{/HTzpaSet}">
+    					    <Table mode="SingleSelectMaster" selectionChange="onRowPress" id="pTypTable" items="{/HTzpaSet}">
     					    	<columns>
     					    		<Column>
     					    			<Text text="PTyp"/>
@@ -154,11 +154,11 @@
     					    </Table>
 
     						<beginButton>
-        						<Button text="OK" press="onValueHelpOk"/>
+        						<Button text="OK" press="onPTypeOk"/>
     						</beginButton>
     						
     						<endButton>
-        						<Button text="Cancel" press="onValueHelpCancel"/>
+        						<Button text="Cancel" press="onPTypeCancel"/>
     						</endButton>
     					</Dialog>
 <!-- ********************************상품유형 Value Help DIALOG End***************************** -->								
@@ -343,11 +343,11 @@
 						<HBox justifyContent="SpaceBetween" class="HBoxStyle">
 							<VBox class="rightBoxStyle">
 								<Label text="당사계좌"/>
-								<Input id="hbkid" showValueHelp="true" valueHelpRequest="onValueHelpRequest2"/>
+								<Input id="hbkid" showValueHelp="true" valueHelpRequest="onHbkidHelp"/>
 <!-- ********************************당사계좌 Value Help DIALOG Start***************************** -->	
-							<Dialog id="valueHelpDialog2" title="당사계좌">
-    					    <SearchField id="searchField2" search="onSearch2"/>
-    					    <Table mode="SingleSelectMaster" selectionChange="onRowPress" id="accountTable" items="{/HT012Set}">
+							<Dialog id="HHbkid" title="당사계좌">
+    					    <SearchField id="searchField2" search="onHbkidSearch"/>
+    					    <Table mode="SingleSelectMaster" selectionChange="onRowPress" id="hbkidTable" items="{/HT012Set}">
     					    	<columns>
     					    		<Column>
     					    			<Text text="거래은행"/>
@@ -375,11 +375,11 @@
     					    </Table>
     					    
     						<beginButton>
-        						<Button text="OK" press="onValueHelpOk2"/>
+        						<Button text="OK" press="onHbkidOk"/>
     						</beginButton>
     						
     						<endButton>
-        						<Button text="Cancel" press="onValueHelpCancel2"/>
+        						<Button text="Cancel" press="onHbkidCancel"/>
     						</endButton>
     					</Dialog>
 <!-- ********************************당사계좌 Value Help DIALOG End***************************** -->	
@@ -391,7 +391,7 @@
 							<!--	<core:Item key="{Hktid}" text="{Text1}"/>-->
 							<!--</ComboBox>-->
 							<items>
-							    <Input xmlns="sap.m" id="hktid" showValueHelp="true" valueHelpRequest="onValueHelpRequest3" />
+							    <Input xmlns="sap.m" id="hktid" showValueHelp="true" valueHelpRequest="onHktidHelp" />
 							</items>
 							</VBox>
 						</HBox>						

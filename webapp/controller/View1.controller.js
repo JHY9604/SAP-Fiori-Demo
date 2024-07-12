@@ -21,10 +21,7 @@ sap.ui.define([
 			// 4000000001928
             var securityId = this.byId("securityId").getValue();
             if (securityId == ""){
-            	alert("null!!!!!!!");
-            	alert("null!!!!!!!");
-            	alert("null!!!!!!!");
-            	alert("null!!!!!!!");
+            	alert("null");
             }
             else{
             	// TEST - JHYKJSDLFJLSDLFKJSDFLKJSDFLJ
@@ -228,69 +225,91 @@ sap.ui.define([
 		},
 		
 		// SEARCH HELP
-		
-    //////////////////////////////////////////////////////////////////회사코드 Value Help - S
-    onCocdHelp: function(oEvent){
-    	var oView = this.getView();
-    	var oDialog = oView.byId("HelpCompanyCode");
+// Dialog open
+	onDialogOpen: function(oId){
+		var oView = this.getView();
+    	var oDialog = oView.byId(oId);
     	
     	oDialog.open();
+	},
+// Dialog cancel	
+	onDialogClose: function(oId){
+		this.getView().byId(oId).close();
+	},	
+	
+// Dialog ok
+	onDialogOk: function(oListId){
+		var oSelectedItem = this.getView().byId(oListId).getSelectedItem();
+    	var oContext = oSelectedItem.getBindingContext();
+    	var oSelectedData = oContext.getObject();
+    	
+    	return oSelectedData;
+	},
+	
+//////////////////////////////////////////////////////////////////회사코드 Value Help - S
+    onCocdHelp: function(oEvent){
+    	this.onDialogOpen("HCompanyCode");
     },
     
     onCocdOk: function(oEvent){
-    	var oSelectedItem = this.getView().byId("CoCdTable").getSelectedItem();
-    	var oContext = oSelectedItem.getBindingContext();
-    	var oSelectedData = oContext.getObject();
-    	var oData = oSelectedData.Bukrs;
+     var SelectedData = this.onDialogOk("CoCdTable");
+     var oData = SelectedData.Bukrs;
+     
      if (oData) {
         this.getView().byId("companyCode").setValue(oData);
       } 
-
-      this.getView().byId("HelpCompanyCode").close();
+      this.onDialogClose("HCompanyCode");
     },
     
     onCocdCancel: function (oEvent) {
-      this.getView().byId("HelpCompanyCode").close();
+    	this.onDialogClose("HCompanyCode");
     },
-	//////////////////////////////////////////////////////////////////회사코드 Value Help - E    
+//////////////////////////////////////////////////////////////////회사코드 Value Help - E    
 	
 //////////////////////////////////////////////////////////////////종목ID Value Help - S   
    
 	onSecurityHelp: function(oEvent){
-      var oView = this.getView();
-      var oDialog = oView.byId("HelpSecurity");
-
-      
-      oDialog.open();    		
+      this.onDialogOpen("HSecurity");
 	},   
-   
+	
+	onSecurityOk: function(oEvent){
+		var SelectedData = this.onDialogOk("securityTable");
+		var oData = SelectedData.Ranl;
+    	
+    	if (oData) {
+        	this.getView().byId("securityId").setValue(oData);
+    	}
+    	
+    	this.onDialogClose("HSecurity");
+
+	},
+	
+	onSecurityCancel: function(oEvent){
+		this.onDialogClose("HSecurity");
+	},
 //////////////////////////////////////////////////////////////////종목ID Value Help - E	
     
 //////////////////////////////////////////////////////////////////상품유형 Value Help - S		
-	onValueHelpRequest: function (oEvent) {
-      var oView = this.getView();
-      var oDialog = oView.byId("valueHelpDialog");
-
-      // 다이얼로그를 열어줍니다.
-      oDialog.open();
+	onPTypeHelp: function (oEvent) {
+      this.onDialogOpen("HPtype");
     },
     
-    onValueHelpOk: function (oEvent) {
-      var oSelectedItem = this.getView().byId("valueHelpList").getSelectedItem();
-    	var oContext = oSelectedItem.getBindingContext();
-    	var oSelectedData = oContext.getObject();
-    	var oData = oSelectedData.Gsart;
-     if (oData) {
-        this.getView().byId("productType").setValue(oData);
-      } 
-      this.getView().byId("valueHelpDialog").close();
+    onPTypeOk: function (oEvent) {
+     var SelectedData = this.onDialogOk("pTypTable");
+		var oData = SelectedData.Gsart;
+    	
+    	if (oData) {
+        	this.getView().byId("productType").setValue(oData);
+    	}
+    	
+    	this.onDialogClose("HPtype");
     },
 
-    onValueHelpCancel: function (oEvent) {
-      this.getView().byId("valueHelpDialog").close();
+    onPTypeCancel: function (oEvent) {
+    	this.onDialogClose("HPtype");
     },
     
-    onSearch: function (oEvent) {
+    onPTypSearch: function (oEvent) {
 	// build filter array
       var aFilter = [];
       var sQuery = oEvent.getParameter("query");
@@ -307,7 +326,7 @@ sap.ui.define([
             });
          
         // filter binding
-      var oTable = this.byId("valueHelpList");
+      var oTable = this.byId("pTypTable");
       var oBinding = oTable.getBinding("items");
         oBinding.filter(oFilter);
     },
@@ -315,31 +334,26 @@ sap.ui.define([
     
     
 //////////////////////////////////////////////////////////////////당사계좌1 Value Help - S    
-    onValueHelpRequest2: function (oEvent){
-      var oView = this.getView();
-      var oDialog = oView.byId("valueHelpDialog2");
-
-      
-      oDialog.open();    	
+    onHbkidHelp: function (oEvent){
+      this.onDialogOpen("HHbkid");
     },
     
-     onValueHelpOk2: function (oEvent) {
-    	var oSelectedItem = this.getView().byId("accountTable").getSelectedItem();
-    	var oContext = oSelectedItem.getBindingContext();
-    	var oSelectedData = oContext.getObject();
-    	var oData = oSelectedData.Hbkid;
-     if (oData) {
-        this.getView().byId("hbkid").setValue(oData);
-      } 
-
-      this.getView().byId("valueHelpDialog2").close();
+     onHbkidOk: function (oEvent) {
+    	var SelectedData = this.onDialogOk("hbkidTable");
+		var oData = SelectedData.Hbkid;
+    	
+    	if (oData) {
+        	this.getView().byId("hbkid").setValue(oData);
+    	}
+    	
+    	this.onDialogClose("HHbkid");
     },
     
-    onValueHelpCancel2: function (oEvent) {
-      this.getView().byId("valueHelpDialog2").close();
+    onHbkidCancel: function (oEvent) {
+      this.onDialogClose("HHbkid");
     },
     
-    onSearch2: function (oEvent) {
+    onHbkidSearch: function (oEvent) {
 	// build filter array
 
 			var aFilter = [];
@@ -350,7 +364,7 @@ sap.ui.define([
 			}
 
 			// filter binding
-			var oList = this.getView().byId("accountTable");
+			var oList = this.getView().byId("hbkidTable");
 			var oBinding = oList.getBinding("items");
 			oBinding.filter(aFilter);
 
@@ -358,28 +372,26 @@ sap.ui.define([
     //////////////////////////////////////////////////////////////////당사계좌1 Value Help - E    
     
  //////////////////////////////////////////////////////////////////당사계좌2 Value Help - S
-    onValueHelpRequest3: function (oEvent){
-      var oView = this.getView();
-      var oDialog = oView.byId("valueHelpDialog3");
-
-      
-      oDialog.open();    	
+    onHktidHelp: function (oEvent){
+      this.onDialogOpen("HHktid");
     },
     
-     onValueHelpOk3: function (oEvent) {
-      var oSelectedItem = this.getView().byId("valueHelpList3").getSelectedItem();
-      if (oSelectedItem) {
-        var sCustomerId = oSelectedItem.getTitle();
-        this.getView().byId("hktid").setValue(sCustomerId);
-      }
-      this.getView().byId("valueHelpDialog3").close();
+     onHktidOk: function (oEvent) {
+    	var SelectedData = this.onDialogOk("hktidTable");
+		var oData = SelectedData.Hktid;
+    	
+    	if (oData) {
+        	this.getView().byId("hktid").setValue(oData);
+    	}
+    	
+    	this.onDialogClose("HHktid");
     },
     
-    onValueHelpCancel3: function (oEvent) {
-      this.getView().byId("valueHelpDialog3").close();
+    onHktidCancel: function (oEvent) {
+      this.onDialogClose("HHktid");
     },
     
-    onSearch3: function (oEvent) {
+    onHktidSearch: function (oEvent) {
 	// build filter array
             var sQuery = oEvent.getSource().getValue();  
             var oFilter = new sap.ui.model.Filter({
@@ -389,7 +401,7 @@ sap.ui.define([
                 and: false
             });
 
-            var oBinding = sap.ui.getCore().byId("valueHelpList3").getBinding("items");     
+            var oBinding = sap.ui.getCore().byId("hktidTable").getBinding("items");     
             oBinding.filter(oFilter, sap.ui.model.FilterType.Application);   
     }
     //////////////////////////////////////////////////////////////////당사계좌2 Value Help - E    
