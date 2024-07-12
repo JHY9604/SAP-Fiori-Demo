@@ -22,6 +22,9 @@ sap.ui.define([
             var securityId = this.byId("securityId").getValue();
             if (securityId == ""){
             	alert("null!!!!!!!");
+            	alert("null!!!!!!!");
+            	alert("null!!!!!!!");
+            	alert("null!!!!!!!");
             }
             else{
             	// TEST - JHYKJSDLFJLSDLFKJSDFLKJSDFLJ
