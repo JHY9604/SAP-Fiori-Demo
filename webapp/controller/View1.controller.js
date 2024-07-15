@@ -152,6 +152,7 @@ sap.ui.define([
 				that.getView().byId("productType").setValue(data[0].ProductType); // 상품유형
 				that.getView().byId("sfhaart").setValue(data[0].Sfhaart); // 거래유형
 				that.getView().byId("status").setValue(data[0].Status); // 상태
+				
 				that.getView().byId("zdataSrc").setValue(data[0].Zdatasrc); // 데이터구분
 				that.getView().byId("expId").setValue(data[0].ExpId); // 구,포지션ID
 				
@@ -287,6 +288,31 @@ sap.ui.define([
 	onSecurityCancel: function(oEvent){
 		this.onDialogClose("HSecurity");
 	},
+	
+	onSecuritySearch: function(oEvent){
+		var aFilter = [];
+		var sQuery = oEvent.getParameter("query");
+
+		if (sQuery) {
+			aFilter.push(new Filter("Ranl", FilterOperator.Contains, sQuery));
+			aFilter.push(new Filter("Xallb", FilterOperator.Contains, sQuery));
+
+		} else {
+      	 aFilter.push(new Filter("Ranl", FilterOperator.Contains, sQuery));
+      }
+
+	      var oFilter = new Filter({
+               filters: aFilter,
+               and: false // 'false'는 OR 조건을 의미
+            });
+
+		// filter binding
+		var oList = this.getView().byId("securityTable");
+		var oBinding = oList.getBinding("items");
+		oBinding.filter(oFilter);		
+
+	
+	},
 //////////////////////////////////////////////////////////////////종목ID Value Help - E	
     
 //////////////////////////////////////////////////////////////////상품유형 Value Help - S		
@@ -333,7 +359,7 @@ sap.ui.define([
     //////////////////////////////////////////////////////////////////상품유형 Value Help - E    
     
     
-//////////////////////////////////////////////////////////////////당사계좌1 Value Help - S    
+	//////////////////////////////////////////////////////////////////당사계좌1 Value Help - S    
     onHbkidHelp: function (oEvent){
       this.onDialogOpen("HHbkid");
     },

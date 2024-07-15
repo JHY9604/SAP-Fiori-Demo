@@ -75,7 +75,7 @@
 							
 <!-- ********************************종목ID Value Help DIALOG Start***************************** -->		
 							<Dialog id="HSecurity" title="종목ID">
-							<SearchField id="securitySearch" search="onSecuritySearch"/>								
+							<SearchField id="securitySearch" search="onSecuritySearch"/>
     					    <Table mode="SingleSelectMaster" selectionChange="onRowPress" id="securityTable" items="{/ZhcfmcmranlBdSet}">
     					    	<columns>
     					    		<Column>
