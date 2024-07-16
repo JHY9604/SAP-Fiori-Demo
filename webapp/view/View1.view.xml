@@ -318,7 +318,7 @@
 							
 							<VBox class="leftBoxStyle">
 								<Label text="　" labelFor="settleKAmt"/>
-								<Input placeholder="현지통화" id="settleKAmt"/>
+								<Input placeholder="현지통화" id="settleKAmt" class="KAmt"/>
 							</VBox>
 						</HBox>
 						<HBox justifyContent="SpaceBetween" class="HBoxStyle">
@@ -329,7 +329,7 @@
 							
 							<VBox class="leftBoxStyle">
 								<Label text="　" labelFor="ininKAmt"/>
-								<Input id="ininKAmt"/>
+								<Input id="ininKAmt"  class="Amt"/>
 							</VBox>
 						</HBox>
 						

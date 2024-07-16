@@ -282,7 +282,7 @@ sap.ui.define([
     	}
     	
     	this.onDialogClose("HSecurity");
-
+    	
 	},
 	
 	onSecurityCancel: function(oEvent){
@@ -311,7 +311,8 @@ sap.ui.define([
 		var oBinding = oList.getBinding("items");
 		oBinding.filter(oFilter);		
 
-	
+
+
 	},
 //////////////////////////////////////////////////////////////////종목ID Value Help - E	
     
