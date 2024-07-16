@@ -357,8 +357,51 @@ sap.ui.define([
       var oBinding = oTable.getBinding("items");
         oBinding.filter(oFilter);
     },
-    //////////////////////////////////////////////////////////////////상품유형 Value Help - E    
+    //////////////////////////////////////////////////////////////////상품유형 Value Help - E  
     
+    
+    //////////////////////////////////////////////////////////////////거래유형 Value Help - S
+	onSfhaartHelp: function (oEvent) {
+      this.onDialogOpen("SfhaartDialog");
+    },
+    
+    onSfhhartOk: function (oEvent) {
+     var SelectedData = this.onDialogOk("sfhaartTable");
+		var oData = SelectedData.TTyp;
+    	
+    	if (oData) {
+        	this.getView().byId("sfhaart").setValue(oData);
+    	}
+    	
+    	this.onDialogClose("SfhaartDialog");
+    },
+
+    onSfhhartCancel: function (oEvent) {
+    	this.onDialogClose("SfhaartDialog");
+    },
+    
+    onSfhaartSearch: function (oEvent) {
+	// build filter array
+      var aFilter = [];
+      var sQuery = oEvent.getParameter("query");
+      if (sQuery) {
+         aFilter.push(new Filter("Sgsart", FilterOperator.Contains, sQuery));
+         aFilter.push(new Filter("Sfhaart", FilterOperator.Contains, sQuery));
+      } else {
+      	 aFilter.push(new Filter("Sfhaart", FilterOperator.Contains, sQuery));
+      }
+         
+      var oFilter = new Filter({
+               filters: aFilter,
+               and: false // 'false'는 OR 조건을 의미
+            });
+         
+        // filter binding
+      var oTable = this.byId("sfhaartTable");
+      var oBinding = oTable.getBinding("items");
+        oBinding.filter(oFilter);
+    },    
+    //////////////////////////////////////////////////////////////////거래유형 Value Help - E     
     
 	//////////////////////////////////////////////////////////////////당사계좌1 Value Help - S    
     onHbkidHelp: function (oEvent){

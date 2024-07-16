@@ -201,8 +201,46 @@
 					<HBox justifyContent="SpaceBetween" class="HBoxStyle">
 						<VBox class="leftVBoxStyle">
 							<Label text="거래유형" labelFor="sfhaart"/>
-							<Input id="sfhaart"/>
+							<Input id="sfhaart" showValueHelp="true" valueHelpRequest="onSfhaartHelp"/>
 						</VBox>
+						
+<!-- ********************************거래유형 Value Help DIALOG Start***************************** -->							
+							<Dialog id="SfhaartDialog" title="거래유형">
+    					    <SearchField id="sfhaartSearch" search="onSfhaartSearch"/>
+
+    					    <Table mode="SingleSelectMaster" selectionChange="onRowPress" id="sfhaartTable" items="{/HsfhaartSet}">
+    					    	<columns>
+    					    		<Column>
+    					    			<Text text="PTyp"/>
+    					    		</Column>
+    					    		<Column>
+    					    			<Text text="TTyp"/>
+    					    		</Column>
+    					    		<Column>
+    					    			<Text text="거래유형이름"/>
+    					    		</Column>
+    					    	</columns>
+    					    	
+    					    	<items>
+									<ColumnListItem vAlign="Middle">
+										<cells>
+											<Text text="{Sgsart}"/>
+											<Text text="{Sfhaart}"/>
+											<Text text="{Xtext}"/>
+										</cells>
+									</ColumnListItem>    					    	
+    					    	</items>
+    					    </Table>
+
+    						<beginButton>
+        						<Button text="OK" press="onSfhhartOk"/>
+    						</beginButton>
+    						
+    						<endButton>
+        						<Button text="Cancel" press="onSfhhartCancel"/>
+    						</endButton>
+    					</Dialog>
+<!-- ********************************거래유형 Value Help DIALOG End***************************** -->
 						
 						<VBox class="rightBoxStyle">
 							<Label text="구,포지션ID" labelFor="expId"/>
