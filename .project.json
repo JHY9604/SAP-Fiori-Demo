@@ -17,7 +17,7 @@
     {
       "templateId": "servicecatalog.connectivityComponent",
       "templateVersion": "0.0.0",
-      "dateTimeStamp": "Thu, 11 Jul 2024 07:39:42 GMT"
+      "dateTimeStamp": "Tue, 16 Jul 2024 06:36:45 GMT"
     }
   ],
   "translation": {
@@ -47,7 +47,7 @@
     "excludedFiles": []
   },
   "mockpreview": {
-    "mockUri": "/sap/opu/odata/sap/ZPJ_BOND_TEST_SRV",
+    "mockUri": "/sap/opu/odata/sap/ZPJ_BDTRAN_TEST_SRV",
     "metadataFilePath": "",
     "loadJSONFiles": false,
     "loadCustomRequests": false,

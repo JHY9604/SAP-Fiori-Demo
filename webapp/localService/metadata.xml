@@ -206,6 +206,61 @@
                     <Property Name="IntKamt" Type="Edm.Decimal" Nullable="false" Precision="22" Scale="3" sap:unicode="false" sap:unit="ValuationCurr" sap:label="과세표준금액(원화)" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                     <Property Name="XaccuAmt" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="매입시 경과이자, 매도시 수입이자" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 </EntityType>
+                <EntityType Name="ZhcfmcmranlBd" sap:content-version="1">
+                    <Key>
+                        <PropertyRef Name="Ranl"/>
+                    </Key>
+                    <Property Name="Xalkz" Type="Edm.String" Nullable="false" MaxLength="15" sap:unicode="false" sap:label="종목명" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="Srolext" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="유가증권분류" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="Xlangbez" Type="Edm.String" Nullable="false" MaxLength="60" sap:unicode="false" sap:label="유가증권분류명" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="NameOrg1" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="발행업체명" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="Xallb" Type="Edm.String" Nullable="false" MaxLength="60" sap:unicode="false" sap:label="긴이름" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="Ranl" Type="Edm.String" Nullable="false" MaxLength="13" sap:unicode="false" sap:label="종목ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="Vvranlwx" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="국제표준코드" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="Debeg" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:label="발행일" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="Dendf" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:label="최종 만기일" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="Rewhr" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:label="통화" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="currency-code"/>
+                    <Property Name="Ltx" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="상품유형명" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="ItemCode" Type="Edm.String" Nullable="false" MaxLength="9" sap:unicode="false" sap:label="종목단축코드" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                </EntityType>
+                <EntityType Name="ZDStBdGbn" sap:content-version="1">
+                    <Key>
+                        <PropertyRef Name="Code"/>
+                    </Key>
+                    <Property Name="Code" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="Text" Type="Edm.String" Nullable="false" MaxLength="60" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                </EntityType>
+                <EntityType Name="ZDFvociYn" sap:content-version="1">
+                    <Key>
+                        <PropertyRef Name="Code"/>
+                    </Key>
+                    <Property Name="Code" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="Text" Type="Edm.String" Nullable="false" MaxLength="60" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                </EntityType>
+                <EntityType Name="HRfha" sap:content-version="1">
+                    <Key>
+                        <PropertyRef Name="Rfha"/>
+                    </Key>
+                    <Property Name="Rfha" Type="Edm.String" Nullable="false" MaxLength="13" sap:unicode="false" sap:label="거래번호" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="Isin" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="표준코드" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="SecurityIdT" Type="Edm.String" Nullable="false" MaxLength="60" sap:unicode="false" sap:label="종목명" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="SfhaartT" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="거래유형" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="PositionDate" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="거래일" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="NameOrg1" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="거래처명" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="Ranl" Type="Edm.String" Nullable="false" MaxLength="13" sap:unicode="false" sap:label="종목코드" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="Rldepo" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="유가증권계정" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="Cruser" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="입력자" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="Upuser" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="최종수정자" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                </EntityType>
+                <EntityType Name="Hsfhaart" sap:content-version="1">
+                    <Key>
+                        <PropertyRef Name="Sgsart"/>
+                        <PropertyRef Name="Sfhaart"/>
+                    </Key>
+                    <Property Name="Sgsart" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="상품 유형" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                    <Property Name="Sfhaart" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="거래 유형" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                    <Property Name="Xtext" Type="Edm.String" MaxLength="30" sap:unicode="false" sap:label="거래 유형 이름" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                </EntityType>
                 <EntityType Name="ZDSTATUS" sap:content-version="1">
                     <Key>
                         <PropertyRef Name="Code"/>
@@ -220,6 +275,20 @@
                     <Property Name="Code" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                     <Property Name="Text" Type="Edm.String" Nullable="false" MaxLength="60" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 </EntityType>
+                <EntityType Name="HT001" sap:content-version="1">
+                    <Key>
+                        <PropertyRef Name="Bukrs"/>
+                    </Key>
+                    <Property Name="Bukrs" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="회사 코드" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="Butxt" Type="Edm.String" Nullable="false" MaxLength="25" sap:unicode="false" sap:label="회사 이름" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                </EntityType>
+                <EntityType Name="ZDFvociRsn" sap:content-version="1">
+                    <Key>
+                        <PropertyRef Name="Code"/>
+                    </Key>
+                    <Property Name="Code" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="Text" Type="Edm.String" Nullable="false" MaxLength="60" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                </EntityType>
                 <EntityContainer Name="ZPJ_BDTRAN_TEST_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
                     <EntitySet Name="HT000Set" EntityType="ZPJ_BDTRAN_TEST_SRV.HT000" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
                     <EntitySet Name="HT012Set" EntityType="ZPJ_BDTRAN_TEST_SRV.HT012" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
@@ -227,8 +296,15 @@
                     <EntitySet Name="HTzpaSet" EntityType="ZPJ_BDTRAN_TEST_SRV.HTzpa" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
                     <EntitySet Name="HVwpdepoSet" EntityType="ZPJ_BDTRAN_TEST_SRV.HVwpdepo" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
                     <EntitySet Name="Z_BDTRANSet" EntityType="ZPJ_BDTRAN_TEST_SRV.Z_BDTRAN" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                    <EntitySet Name="ZhcfmcmranlBdSet" EntityType="ZPJ_BDTRAN_TEST_SRV.ZhcfmcmranlBd" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                    <EntitySet Name="ZDStBdGbnSet" EntityType="ZPJ_BDTRAN_TEST_SRV.ZDStBdGbn" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                    <EntitySet Name="ZDFvociYnSet" EntityType="ZPJ_BDTRAN_TEST_SRV.ZDFvociYn" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                    <EntitySet Name="HRfhaSet" EntityType="ZPJ_BDTRAN_TEST_SRV.HRfha" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                    <EntitySet Name="HsfhaartSet" EntityType="ZPJ_BDTRAN_TEST_SRV.Hsfhaart" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
                     <EntitySet Name="ZDSTATUSSet" EntityType="ZPJ_BDTRAN_TEST_SRV.ZDSTATUS" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
                     <EntitySet Name="ZDDATASRCSet" EntityType="ZPJ_BDTRAN_TEST_SRV.ZDDATASRC" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                    <EntitySet Name="HT001Set" EntityType="ZPJ_BDTRAN_TEST_SRV.HT001" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                    <EntitySet Name="ZDFvociRsnSet" EntityType="ZPJ_BDTRAN_TEST_SRV.ZDFvociRsn" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
                 </EntityContainer>
                 <atom:link
                     xmlns:atom="http://www.w3.org/2005/Atom" rel="self" href="./sap/ZPJ_BDTRAN_TEST_SRV/$metadata"/>

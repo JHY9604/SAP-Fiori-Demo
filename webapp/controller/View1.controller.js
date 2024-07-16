@@ -16,7 +16,7 @@ sap.ui.define([
     
 		},
 		
-		// 종목조회
+	// 종목조회
 		onReadBdClass: function () {
 			// 4000000001928
             var securityId = this.byId("securityId").getValue();
@@ -43,7 +43,7 @@ sap.ui.define([
 					that.byId("szbmeth").setValue(data.Szbmeth); //일수계산방법
 					that.byId("itcd").setValue(data.Itcd); //이자지급방법
 					that.byId("ittm").setValue(data.Ittm); //이자지급계산주기
-					that.byId("issueDate").setValue(data.IssueDate); //발 행 일
+					that.byId("issueDate").setValue(that.dateFormat(data.IssueDate)); //발 행 일
 					that.byId("eddt").setValue(that.dateFormat(data.Eddt)); //만 기 일
 					that.byId("cupr").setValue(data.Cupr); //표면이자율
 					that.byId("ipyohal01").setValue(data.Ipyohal01); //할 인 율
@@ -118,7 +118,7 @@ sap.ui.define([
   //  },
     
     // 조회 button
-    onSelect : function(){
+     onSelect : function(){
     		
 			var dealNumber = this.byId("dealNumber").getValue();
 			var oFilter = new Filter([new Filter("DealNumber", FilterOperator.EQ,dealNumber)],false);
@@ -152,8 +152,8 @@ sap.ui.define([
 				that.getView().byId("productType").setValue(data[0].ProductType); // 상품유형
 				that.getView().byId("sfhaart").setValue(data[0].Sfhaart); // 거래유형
 				that.getView().byId("status").setValue(data[0].Status); // 상태
-				
 				that.getView().byId("zdataSrc").setValue(data[0].Zdatasrc); // 데이터구분
+				
 				that.getView().byId("expId").setValue(data[0].ExpId); // 구,포지션ID
 				
 				// that.getView().byId("curr").setValue(data[0].PaymentDate); // 통화
@@ -224,6 +224,7 @@ sap.ui.define([
 			
 			return sFormattedDate;
 		},
+
 		
 		// SEARCH HELP
 // Dialog open
@@ -265,7 +266,49 @@ sap.ui.define([
     onCocdCancel: function (oEvent) {
     	this.onDialogClose("HCompanyCode");
     },
-//////////////////////////////////////////////////////////////////회사코드 Value Help - E    
+//////////////////////////////////////////////////////////////////회사코드 Value Help - E  
+
+//////////////////////////////////////////////////////////////////거래번호 Value Help - S
+	onRfhaHelp: function(oEvent){
+		this.onDialogOpen("HRfha");
+	},
+	
+	onRfhaOk: function(oEvent){
+     var SelectedData = this.onDialogOk("dealNumberTable");
+     var oData = SelectedData.Rfha;
+     
+     if (oData) {
+        this.getView().byId("dealNumber").setValue(oData);
+      } 
+      this.onDialogClose("HRfha");
+    },
+    
+    onRfhaCancel: function (oEvent) {
+    	this.onDialogClose("HRfha");
+    },
+    
+    onRfhaSearch: function (oEvent) {
+	// build filter array
+      var aFilter = [];
+      var sQuery = oEvent.getParameter("query");
+      //if (sQuery) {
+         aFilter.push(new Filter("Rfha", FilterOperator.Contains, sQuery));
+      //   aFilter.push(new Filter("Ltx", FilterOperator.Contains, sQuery));
+      //} else {
+      //	 aFilter.push(new Filter("Gsart", FilterOperator.Contains, sQuery));
+      //}
+         
+      var oFilter = new Filter({
+               filters: aFilter,
+               and: false // 'false'는 OR 조건을 의미
+            });
+         
+        // filter binding
+      var oTable = this.byId("dealNumberTable");
+      var oBinding = oTable.getBinding("items");
+        oBinding.filter(oFilter);
+    },
+//////////////////////////////////////////////////////////////////거래번호 Value Help - E
 	
 //////////////////////////////////////////////////////////////////종목ID Value Help - S   
    

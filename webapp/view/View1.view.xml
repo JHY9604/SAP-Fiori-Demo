@@ -163,26 +163,76 @@
     					</Dialog>
 <!-- ********************************상품유형 Value Help DIALOG End***************************** -->								
 							
-							<!--<Dialog id="valueHelpDialog" title="상품유형">-->
-    			<!--		    <SearchField id="searchField" search="onSearch"/>-->
-    			<!--			<List id="valueHelpList" mode="SingleSelectMaster" items="{/HTzpaSet}">-->
-       <!-- 						<StandardListItem title="{Ltx}" description="{Gsart}"/>-->
-    			<!--			</List>-->
-    						
-    			<!--			<beginButton>-->
-       <!-- 						<Button text="OK" press="onValueHelpOk"/>-->
-    			<!--			</beginButton>-->
-    						
-    			<!--			<endButton>-->
-       <!-- 						<Button text="Cancel" press="onValueHelpCancel"/>-->
-    			<!--			</endButton>-->
-    			<!--		</Dialog>-->
     					
 						</VBox>
 						
 						<VBox>
 							<Label text="거래번호" labelFor="dealNumber"/>
-							<Input id="dealNumber"/>
+							<Input id="dealNumber" submit="onSelect" showValueHelp="true" valueHelpRequest="onRfhaHelp" />
+							
+							<Dialog id="HRfha" title="거래번호">
+    					    <!--<SearchField id="searchField" search="onRfhaSearch"/>-->
+
+    					    <Table mode="SingleSelectMaster" selectionChange="onRowPress" id="dealNumberTable" items="{/HRfhaSet}">
+    					    	<columns>
+    					    		<Column>
+    					    			<Text text="거래번호"/>
+    					    		</Column>
+    					    		<Column>
+    					    			<Text text="표준코드"/>
+    					    		</Column>
+    					    		<Column>
+    					    			<Text text="종목명"/>
+    					    		</Column>
+    					    		<Column>
+    					    			<Text text="거래유형"/>
+    					    		</Column>    
+    					    		<Column>
+    					    			<Text text="거래일"/>
+    					    		</Column> 
+    					    		<Column>
+    					    			<Text text="거래처명"/>
+    					    		</Column> 
+    					    		<Column>
+    					    			<Text text="종목코드"/>
+    					    		</Column> 
+    					    		<Column>
+    					    			<Text text="유가증권계정"/>
+    					    		</Column> 
+    					    		<Column>
+    					    			<Text text="입력자"/>
+    					    		</Column>
+    					    		<Column>
+    					    			<Text text="최종수정자"/>
+    					    		</Column>
+    					    	</columns>
+    					    	
+    					    	<items>
+									<ColumnListItem vAlign="Middle">
+										<cells>
+											<Text text="{Rfha}"/>
+											<Text text="{Isin}"/>
+											<Text text="{SecurityIdT}"/>
+											<Text text="{SfhaartT}"/>
+											<Text text="{PositionDate}"/>
+											<Text text="{NameOrg1}"/>
+											<Text text="{Ranl}"/>
+											<Text text="{Rldepo}"/>
+											<Text text="{Cruser}"/>
+											<Text text="{Upuser}"/>
+										</cells>
+									</ColumnListItem>    					    	
+    					    	</items>
+    					    </Table>
+
+    						<beginButton>
+        						<Button text="OK" press="onRfhaOk"/>
+    						</beginButton>
+    						
+    						<endButton>
+        						<Button text="Cancel" press="onRfhaCancel"/>
+    						</endButton>
+    					</Dialog>
 						</VBox>
 						
 						<VBox class="rightVBoxStyle">
@@ -202,7 +252,7 @@
 						<VBox class="leftVBoxStyle">
 							<Label text="거래유형" labelFor="sfhaart"/>
 							<Input id="sfhaart" showValueHelp="true" valueHelpRequest="onSfhaartHelp"/>
-						</VBox>
+						<!--</VBox>-->
 						
 <!-- ********************************거래유형 Value Help DIALOG Start***************************** -->							
 							<Dialog id="SfhaartDialog" title="거래유형">
@@ -240,6 +290,7 @@
         						<Button text="Cancel" press="onSfhhartCancel"/>
     						</endButton>
     					</Dialog>
+    					</VBox>
 <!-- ********************************거래유형 Value Help DIALOG End***************************** -->
 						
 						<VBox class="rightBoxStyle">
@@ -503,24 +554,25 @@
 					<HBox justifyContent="SpaceBetween" class="HBoxStyle">
 						<VBox class="leftBoxStyle">
 							<Label text="지분채무구분" labelFor="stBdGbn"/>
-							  <ComboBox id="stBdGbn" width="200px" placeholder="Select an item">
-							      <core:Item key="1" text="직접입력"/>
+							  <ComboBox id="stBdGbn" width="200px" placeholder="Select an item" items="{ path: '/ZDStBdGbnSet' }">
+							      <core:Item key="{Code}" text="{Text}"/>
 							  </ComboBox>
 						</VBox>
 						<ToolbarSpacer width="20px"/>
 						<VBox class="rightBoxStyle">
 							<Label text="FVOCI 지정여부" labelFor="fvociYn"/>
-							  <ComboBox id="fvociYn" width="200px" placeholder="Select an item">
-							      <core:Item key="1" text="직접입력"/>
+							  <ComboBox id="fvociYn" width="200px" placeholder="Select an item" items="{ path: '/ZDFvociYnSet' }">
+							      <core:Item key="{Code}" text="{Text}"/>
 							  </ComboBox>
+
 						</VBox>
 					</HBox>
 					
 					<HBox justifyContent="SpaceBetween" class="HBoxStyle">
 						<VBox class="rightBoxStyle">
 							<Label text="FVOCI 지정사유" class="fvociRe" labelFor="fvociRsn"/>
-							  <ComboBox id="fvociRsn" width="200px" placeholder="Select an item" class="fvociInput">
-							      <core:Item key="1" text="직접입력"/>
+							  <ComboBox id="fvociRsn" width="200px" placeholder="Select an item" items="{ path: '/ZDFvociRsnSet' }">
+							      <core:Item key="{Code}" text="{Text}"/>
 							  </ComboBox>
 						</VBox>
 					</HBox>

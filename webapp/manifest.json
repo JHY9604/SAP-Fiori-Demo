@@ -14,20 +14,20 @@
 			"version": "0.0.0"
 		},
 		"dataSources": {
-			"ZPJ_BDTRAN_TEST_SRV": {
-				"uri": "/sap/opu/odata/sap/ZPJ_BDTRAN_TEST_SRV/",
-				"type": "OData",
-				"settings": {
-					"odataVersion": "2.0",
-					"localUri": "localService/metadata.xml"
-				}
-			},
 			"ZPJ_BOND_TEST_SRV": {
 				"uri": "/sap/opu/odata/sap/ZPJ_BOND_TEST_SRV/",
 				"type": "OData",
 				"settings": {
 					"odataVersion": "2.0",
 					"localUri": "localService/ZPJ_BOND_TEST_SRV/metadata.xml"
+				}
+			},
+			"ZPJ_BDTRAN_TEST_SRV": {
+				"uri": "/sap/opu/odata/sap/ZPJ_BDTRAN_TEST_SRV/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0",
+					"localUri": "localService/metadata.xml"
 				}
 			}
 		}
