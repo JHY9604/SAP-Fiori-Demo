@@ -172,7 +172,7 @@
 							
 							<Dialog id="HRfha" title="거래번호">
     					    <!--<SearchField id="searchField" search="onRfhaSearch"/>-->
-
+							<Text text="test"/>
     					    <Table mode="SingleSelectMaster" selectionChange="onRowPress" id="dealNumberTable" items="{/HRfhaSet}">
     					    	<columns>
     					    		<Column>
