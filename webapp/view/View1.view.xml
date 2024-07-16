@@ -166,7 +166,9 @@
     					
 						</VBox>
 						
+						
 						<VBox>
+							<Text>sddd</Text>
 							<Label text="거래번호" labelFor="dealNumber"/>
 							<Input id="dealNumber" submit="onSelect" showValueHelp="true" valueHelpRequest="onRfhaHelp" />
 							
