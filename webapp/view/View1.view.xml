@@ -172,7 +172,11 @@
 							<Input id="dealNumber" submit="onSelect" showValueHelp="true" valueHelpRequest="onRfhaHelp" />
 							
 							<Dialog id="HRfha" title="거래번호">
+<<<<<<< Upstream, based on dd124007ad1f30e947ca9b9f629cbad3e5c30462
     					    <!--<SearchField id="searchField" search="onRfhaSearch"/>-->
+=======
+    					    <SearchField id="rfhaSearchField" search="onRfhaSearch"/>
+>>>>>>> 676092e 20240717 jh commit
     					    <Table mode="SingleSelectMaster" selectionChange="onRowPress" id="dealNumberTable" items="{/HRfhaSet}">
     					    	<columns>
     					    		<Column>

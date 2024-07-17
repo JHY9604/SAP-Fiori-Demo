@@ -291,12 +291,12 @@ sap.ui.define([
 	// build filter array
       var aFilter = [];
       var sQuery = oEvent.getParameter("query");
-      //if (sQuery) {
+      if (sQuery) {
          aFilter.push(new Filter("Rfha", FilterOperator.Contains, sQuery));
-      //   aFilter.push(new Filter("Ltx", FilterOperator.Contains, sQuery));
-      //} else {
-      //	 aFilter.push(new Filter("Gsart", FilterOperator.Contains, sQuery));
-      //}
+         aFilter.push(new Filter("SecurityIdT", FilterOperator.Contains, sQuery));
+      } else {
+      	 aFilter.push(new Filter("Rfha", FilterOperator.Contains, sQuery));
+      }
          
       var oFilter = new Filter({
                filters: aFilter,
