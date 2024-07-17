@@ -168,13 +168,11 @@
 						
 						
 						<VBox>
-							<Text>sddd</Text>
 							<Label text="거래번호" labelFor="dealNumber"/>
 							<Input id="dealNumber" submit="onSelect" showValueHelp="true" valueHelpRequest="onRfhaHelp" />
 							
 							<Dialog id="HRfha" title="거래번호">
     					    <!--<SearchField id="searchField" search="onRfhaSearch"/>-->
-							<Text text="test"/>
     					    <Table mode="SingleSelectMaster" selectionChange="onRowPress" id="dealNumberTable" items="{/HRfhaSet}">
     					    	<columns>
     					    		<Column>
@@ -506,9 +504,40 @@
 					<HBox justifyContent="SpaceBetween" class="HBoxStyle">
 						<VBox class="leftVBoxStyle">
 							<Label text="계정구분" labelFor="portfolio"/>
-							<Input id="portfolio"/>
+							<Input id="portfolio" showValueHelp="true" valueHelpRequest="onPortDialog"/>
 						</VBox>
 					</HBox>
+					
+<!-- ********************************계정구분 Value Help DIALOG Start*************************** -->
+					<Dialog id="portDialog" title="계정구분">
+    			    <Table mode="SingleSelectMaster" selectionChange="onPortTable" id="portTable" items="{/ZhcfmcmRportbSet}">
+    			    	<columns>
+    			    		<Column>
+    			    			<Text text="포트폴리오"/>
+    			    		</Column>
+    			    		<Column>
+    			    			<Text text="포트폴리오 이름"/>
+    			    		</Column>
+    			    	</columns>
+    			    <items>
+						<ColumnListItem vAlign="Middle">
+							<cells>
+								<Text text="{Rportb}"/>
+								<Text text="{Xportb}"/>
+							</cells>
+						</ColumnListItem>    					    	
+    			    </items>
+    			    </Table>
+    			    
+    				<beginButton>
+        				<Button text="OK" press="onPortOk"/>
+    				</beginButton>
+    				
+    				<endButton>
+        				<Button text="Cancel" press="onPortCancel"/>
+    				</endButton>
+    			</Dialog>
+<!-- ********************************계정구분 Value Help DIALOG End***************************** -->
 					
 					<HBox justifyContent="SpaceBetween" class="HBoxStyle">
 						<VBox class="rightBoxStyle">
@@ -520,9 +549,41 @@
 					<HBox justifyContent="SpaceBetween" class="HBoxStyle">
 						<VBox class="rightBoxStyle">
 							<Label text="운용역" labelFor="manager"/>
-							<Input id="manager"/>
+							<Input id="manager" showValueHelp="true" valueHelpRequest="onManagerHelp"/>
 						</VBox>
 					</HBox>
+					
+<!-- ********************************운용역 Value Help DIALOG Start*************************** -->
+					<Dialog id="managerDialog" title="계정구분">
+    			    <Table mode="SingleSelectMaster" selectionChange="onManagerTable" id="managerTable" items="{/ZhmanagerSet}">
+    			    	<columns>
+    			    		<Column>
+    			    			<Text text="운용역"/>
+    			    		</Column>
+    			    		<Column>
+    			    			<Text text="운용역 이름"/>
+    			    		</Column>
+    			    	</columns>
+    			    <items>
+						<ColumnListItem vAlign="Middle">
+							<cells>
+								<Text text="{Manager}"/>
+								<Text text="{Manager_nm}"/>
+							</cells>
+						</ColumnListItem>    					    	
+    			    </items>
+    			    </Table>
+    			    
+    				<beginButton>
+        				<Button text="OK" press="onManagerOk"/>
+    				</beginButton>
+    				
+    				<endButton>
+        				<Button text="Cancel" press="onManagerCancle"/>
+    				</endButton>
+    			</Dialog>
+<!-- ********************************운용역 Value Help DIALOG End***************************** -->					
+					
 					
 					<HBox justifyContent="SpaceBetween" class="HBoxStyle">
 						<VBox class="rightBoxStyle">

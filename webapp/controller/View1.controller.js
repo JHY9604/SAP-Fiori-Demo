@@ -400,10 +400,10 @@ sap.ui.define([
       var oBinding = oTable.getBinding("items");
         oBinding.filter(oFilter);
     },
-    //////////////////////////////////////////////////////////////////상품유형 Value Help - E  
-    
-    
-    //////////////////////////////////////////////////////////////////거래유형 Value Help - S
+//////////////////////////////////////////////////////////////////상품유형 Value Help - E  
+ 
+ 
+//////////////////////////////////////////////////////////////////거래유형 Value Help - S
 	onSfhaartHelp: function (oEvent) {
       this.onDialogOpen("SfhaartDialog");
     },
@@ -444,9 +444,9 @@ sap.ui.define([
       var oBinding = oTable.getBinding("items");
         oBinding.filter(oFilter);
     },    
-    //////////////////////////////////////////////////////////////////거래유형 Value Help - E     
-    
-	//////////////////////////////////////////////////////////////////당사계좌1 Value Help - S    
+//////////////////////////////////////////////////////////////////거래유형 Value Help - E     
+ 
+//////////////////////////////////////////////////////////////////당사계좌1 Value Help - S    
     onHbkidHelp: function (oEvent){
       this.onDialogOpen("HHbkid");
     },
@@ -482,7 +482,7 @@ sap.ui.define([
 			oBinding.filter(aFilter);
 
     },
-    //////////////////////////////////////////////////////////////////당사계좌1 Value Help - E    
+//////////////////////////////////////////////////////////////////당사계좌1 Value Help - E    
     
  //////////////////////////////////////////////////////////////////당사계좌2 Value Help - S
     onHktidHelp: function (oEvent){
@@ -516,8 +516,47 @@ sap.ui.define([
 
             var oBinding = sap.ui.getCore().byId("hktidTable").getBinding("items");     
             oBinding.filter(oFilter, sap.ui.model.FilterType.Application);   
-    }
-    //////////////////////////////////////////////////////////////////당사계좌2 Value Help - E    
+    },
+//////////////////////////////////////////////////////////////////당사계좌2 Value Help - E    
 
+//////////////////////////////////////////////////////////////////계정구분 Value Help - S
+	onPortDialog: function(oEvent){
+		this.onDialogOpen("portDialog");
+	},
+	
+	onPortOk: function(oEvent){
+		var SelectedData = this.onDialogOk("portTable");
+		var oData = SelectedData.Rportb;
+		
+		if(oData){
+			this.getView().byId("portfolio").setValue(oData);
+		}
+		this.onDialogClose("portDialog");
+	},
+	
+	onPortCancel: function(oEvent){
+		this.onDialogClose("portDialog");
+	},
+//////////////////////////////////////////////////////////////////계정구분 Value Help - E
+
+//////////////////////////////////////////////////////////////////운용역 Value Help - S
+	onManagerHelp: function(oEvent){
+		this.onDialogOpen("managerDialog");
+	},
+	
+	onManagerOk: function(oEvent){
+		var SelectedData = this.onDialogOk("managerTable");
+		var oData = SelectedData.Manager;
+		
+		if(oData){
+			this.getView().byId("manager").setValue(oData);
+		}
+		this.onDialogClose("managerDialog");
+	},
+	
+	onManagerCancle: function(oEvent){
+		this.onDialogClose("managerDialog");
+	}
+//////////////////////////////////////////////////////////////////운용역 Value Help - E
 	});
 });
